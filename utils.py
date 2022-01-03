@@ -36,8 +36,7 @@ class PackPathway(nn.Module):
 
 train_transform = ApplyTransformToKey(key="video", transform=Compose(
     [UniformTemporalSubsample(num_frames), Lambda(lambda x: x / 255.0), Normalize(mean, std),
-     RandomShortSideScale(min_size=side_size, max_size=max_size),
-     PackPathway()]))
+     RandomShortSideScale(min_size=side_size, max_size=max_size), PackPathway()]))
 test_transform = ApplyTransformToKey(key="video", transform=Compose(
     [UniformTemporalSubsample(num_frames), Lambda(lambda x: x / 255.0), Normalize(mean, std),
      ShortSideScale(size=side_size), PackPathway()]))
