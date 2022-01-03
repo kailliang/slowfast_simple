@@ -11,9 +11,9 @@ std = [0.225, 0.225, 0.225]
 crop_size = 256
 num_frames = 32
 sampling_rate = 2
-frames_per_second = 30
+frames_per_second = 10
 clip_duration = (num_frames * sampling_rate) / frames_per_second
-num_classes = 400
+num_classes = 3
 
 
 class PackPathway(nn.Module):
