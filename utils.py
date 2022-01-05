@@ -11,7 +11,7 @@ std = [0.225, 0.225, 0.225]
 crop_size = 400
 num_frames = 32
 sampling_rate = 1
-frames_per_second = 32/6
+frames_per_second = 5
 clip_duration = 6
 num_classes = 3
 
