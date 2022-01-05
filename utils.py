@@ -12,7 +12,7 @@ crop_size = 400
 num_frames = 32
 sampling_rate = 1
 frames_per_second = 32/6
-clip_duration = (num_frames * sampling_rate) / frames_per_second
+clip_duration = 6
 num_classes = 3
 
 
