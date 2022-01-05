@@ -10,7 +10,7 @@ from pytorchvideo.data import make_clip_sampler, labeled_video_dataset
 from pytorchvideo.models import create_slowfast
 from torch.backends import cudnn
 from torch.nn import CrossEntropyLoss
-from torch.optim import Adam
+from torch.optim import Adam, SGD
 from torch.utils.data import DataLoader
 from tqdm import tqdm
 
@@ -91,7 +91,7 @@ if __name__ == '__main__':
     # slow_fast = torch.hub.load('facebookresearch/pytorchvideo:main', model='slowfast_r50', pretrained=True)
     loss_criterion = CrossEntropyLoss()
     # optimizer = Adam(slow_fast.parameters(), lr=1e-1)
-    optimizer = sgd(slow_fast.parameters(), lr=0.001)
+    optimizer = SGD(slow_fast.parameters(), lr=0.001, momentum=0.9)
 
     # training loop
     results = {'loss': [], 'acc': [], 'top-1': [], 'top-5': []}
