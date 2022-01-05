@@ -4,11 +4,11 @@ from pytorchvideo.transforms import ApplyTransformToKey, UniformTemporalSubsampl
 from torch import nn
 from torchvision.transforms import Compose, Lambda, RandomCrop, RandomHorizontalFlip, CenterCrop
 
-side_size = 256
-max_size = 320
+side_size = 400
+max_size = 400
 mean = [0.45, 0.45, 0.45]
 std = [0.225, 0.225, 0.225]
-crop_size = 256
+crop_size = 400
 num_frames = 32
 sampling_rate = 2
 frames_per_second = 30
