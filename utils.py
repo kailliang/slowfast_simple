@@ -11,8 +11,8 @@ std = [0.225, 0.225, 0.225]
 crop_size = 400
 num_frames = 32
 sampling_rate = 1
-frames_per_second = 5
-clip_duration = 6
+frames_per_second = 32/6
+clip_duration = (num_frames * sampling_rate) / frames_per_second
 num_classes = 3
 
 
@@ -36,7 +36,8 @@ class PackPathway(nn.Module):
 
 train_transform = ApplyTransformToKey(key="video", transform=Compose(
     [UniformTemporalSubsample(num_frames), Lambda(lambda x: x / 255.0), Normalize(mean, std),
-     PackPathway()]))
+     RandomShortSideScale(min_size=side_size, max_size=max_size), RandomCrop(crop_size), PackPathway()]))
+
 test_transform = ApplyTransformToKey(key="video", transform=Compose(
     [UniformTemporalSubsample(num_frames), Lambda(lambda x: x / 255.0), Normalize(mean, std),
-    PackPathway()]))
+     ShortSideScale(size=side_size), CenterCrop(crop_size), PackPathway()]))
