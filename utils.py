@@ -5,7 +5,7 @@ from torch import nn
 from torchvision.transforms import Compose, Lambda, RandomCrop, RandomHorizontalFlip, CenterCrop
 
 side_size = 400
-max_size = 416
+max_size = 400
 mean = [0.45, 0.45, 0.45]
 std = [0.225, 0.225, 0.225]
 crop_size = 400
@@ -36,7 +36,7 @@ class PackPathway(nn.Module):
 
 train_transform = ApplyTransformToKey(key="video", transform=Compose(
     [UniformTemporalSubsample(num_frames), Lambda(lambda x: x / 255.0), Normalize(mean, std),
-     RandomShortSideScale(min_size=side_size, max_size=max_size), PackPathway()]))
+     PackPathway()]))
 test_transform = ApplyTransformToKey(key="video", transform=Compose(
     [UniformTemporalSubsample(num_frames), Lambda(lambda x: x / 255.0), Normalize(mean, std),
-     ShortSideScale(size=side_size), PackPathway()]))
+    PackPathway()]))
