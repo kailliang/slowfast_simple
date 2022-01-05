@@ -21,7 +21,7 @@ class PackPathway(nn.Module):
     Transform for converting video frames as a list of tensors.
     """
 
-    def __init__(self, alpha=8):
+    def __init__(self, alpha=4):
         super().__init__()
         self.alpha = alpha
 
