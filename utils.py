@@ -10,8 +10,8 @@ mean = [0.45, 0.45, 0.45]
 std = [0.225, 0.225, 0.225]
 crop_size = 400
 num_frames = 32
-sampling_rate = 2
-frames_per_second = 30
+sampling_rate = 1
+frames_per_second = 32/6
 clip_duration = (num_frames * sampling_rate) / frames_per_second
 num_classes = 3
 
