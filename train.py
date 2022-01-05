@@ -90,7 +90,8 @@ if __name__ == '__main__':
     slow_fast = create_slowfast(model_num_class=num_classes).cuda()
     # slow_fast = torch.hub.load('facebookresearch/pytorchvideo:main', model='slowfast_r50', pretrained=True)
     loss_criterion = CrossEntropyLoss()
-    optimizer = Adam(slow_fast.parameters(), lr=1e-1)
+    # optimizer = Adam(slow_fast.parameters(), lr=1e-1)
+    optimizer = sgd(slow_fast.parameters(), lr=0.001)
 
     # training loop
     results = {'loss': [], 'acc': [], 'top-1': [], 'top-5': []}
